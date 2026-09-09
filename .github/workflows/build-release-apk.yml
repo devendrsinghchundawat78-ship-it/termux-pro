@@ -47,6 +47,11 @@ jobs:
             -keypass "termuxpro-build-pass" \
             -dname "CN=Termux Pro, O=Termux Pro, L=City, C=IN"
 
+      - name: Download Termux bootstrap zips (needed by the native build)
+        shell: bash {0}
+        run: |
+          ./gradlew :app:downloadBootstraps --no-daemon
+
       - name: Build signed release APK
         shell: bash {0}
         env:
