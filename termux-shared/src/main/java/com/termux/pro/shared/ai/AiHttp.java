@@ -1,5 +1,8 @@
 package com.termux.pro.shared.ai;
 
+import com.termux.pro.shared.ai.AiClient.AiException;
+
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 

@@ -306,7 +306,7 @@ public final class AiClient {
         }
     }
 
-    private static String fetchModelsGemini(String apiKey) throws AiException {
+    private static List<String> fetchModelsGemini(String apiKey) throws AiException {
         String url = AiConstants.BASE_URL_GEMINI + "/models?key=" + urlEncode(apiKey);
         AiHttp.Response response = AiHttp.request("GET", url, null, null);
         if (!response.isOk()) throw buildError(response.statusCode, response.body, "gemini");
