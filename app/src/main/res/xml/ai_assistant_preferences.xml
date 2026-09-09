@@ -20,7 +20,7 @@
             app:title="@string/ai_api_key_title"
             app:summary="@string/ai_api_key_summary_empty"
             app:persistent="false"
-            app:inputType="textPassword" />
+            android:inputType="textPassword" />
 
         <Preference
             app:key="ai_test_connection"
@@ -31,7 +31,7 @@
             app:key="ai_ollama_url"
             app:title="@string/ai_ollama_url_title"
             app:summary="@string/ai_ollama_url_summary"
-            app:inputType="textUri" />
+            android:inputType="textUri" />
 
         <ListPreference
             app:key="ai_model_gemini"
@@ -80,14 +80,14 @@
             app:key="ai_max_retries"
             app:title="@string/ai_retries_title"
             app:summary="@string/ai_retries_summary"
-            app:inputType="number"
+            android:inputType="number"
             app:defaultValue="3" />
 
         <EditTextPreference
             app:key="ai_command_timeout"
             app:title="@string/ai_timeout_title"
             app:summary="@string/ai_timeout_summary"
-            app:inputType="number"
+            android:inputType="number"
             app:defaultValue="240" />
 
     </PreferenceCategory>
