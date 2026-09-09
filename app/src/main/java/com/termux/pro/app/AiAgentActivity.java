@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.termux.pro.R;
 import com.termux.pro.shared.ai.AiAgentEngine;
+import com.termux.pro.shared.ai.AiAgentEngine.ApprovalCallback;
 import com.termux.pro.shared.ai.AiSettings;
 
 import java.util.Locale;
