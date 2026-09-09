@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="4dp">
+
+    <TextView
+        android:id="@+id/ai_approval_command"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textColor="#FF1E1E1E"
+        android:textIsSelectable="true"
+        android:textSize="14sp"
+        android:background="#FFE8E8E8"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/ai_approval_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:paddingLeft="4dp"
+        android:paddingTop="10dp" />
+
+</LinearLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:key="ai_agent_open"
+        app:title="@string/ai_agent_open_title"
+        app:summary="@string/ai_agent_open_summary" />
+
+    <PreferenceCategory
+        app:key="ai_provider_category"
+        app:title="@string/ai_header_provider">
+
+        <ListPreference
+            app:key="ai_provider"
+            app:title="@string/ai_provider_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="ai_api_key"
+            app:title="@string/ai_api_key_title"
+            app:summary="@string/ai_api_key_summary_empty"
+            app:persistent="false"
+            app:inputType="textPassword" />
+
+        <Preference
+            app:key="ai_test_connection"
+            app:title="@string/ai_test_connection_title"
+            app:summary="@string/ai_test_connection_summary_default" />
+
+        <EditTextPreference
+            app:key="ai_ollama_url"
+            app:title="@string/ai_ollama_url_title"
+            app:summary="@string/ai_ollama_url_summary"
+            app:inputType="textUri" />
+
+        <ListPreference
+            app:key="ai_model_gemini"
+            app:title="@string/ai_model_title_gemini"
+            app:useSimpleSummaryProvider="true"
+            app:isPreferenceVisible="false" />
+
+        <ListPreference
+            app:key="ai_model_openai"
+            app:title="@string/ai_model_title_openai"
+            app:useSimpleSummaryProvider="true"
+            app:isPreferenceVisible="false" />
+
+        <ListPreference
+            app:key="ai_model_anthropic"
+            app:title="@string/ai_model_title_anthropic"
+            app:useSimpleSummaryProvider="true"
+            app:isPreferenceVisible="false" />
+
+        <ListPreference
+            app:key="ai_model_groq"
+            app:title="@string/ai_model_title_groq"
+            app:useSimpleSummaryProvider="true"
+            app:isPreferenceVisible="false" />
+
+        <ListPreference
+            app:key="ai_model_ollama"
+            app:title="@string/ai_model_title_ollama"
+            app:useSimpleSummaryProvider="true"
+            app:isPreferenceVisible="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="ai_safety_category"
+        app:title="@string/ai_header_safety">
+
+        <SwitchPreferenceCompat
+            app:key="ai_ask_confirmation"
+            app:title="@string/ai_ask_title"
+            app:summaryOn="@string/ai_ask_on"
+            app:summaryOff="@string/ai_ask_off"
+            app:defaultValue="true" />
+
+        <EditTextPreference
+            app:key="ai_max_retries"
+            app:title="@string/ai_retries_title"
+            app:summary="@string/ai_retries_summary"
+            app:inputType="number"
+            app:defaultValue="3" />
+
+        <EditTextPreference
+            app:key="ai_command_timeout"
+            app:title="@string/ai_timeout_title"
+            app:summary="@string/ai_timeout_summary"
+            app:inputType="number"
+            app:defaultValue="240" />
+
+    </PreferenceCategory>
+
+    <Preference
+        app:key="ai_help"
+        app:title="@string/ai_help_title"
+        app:summary="@string/ai_help_summary" />
+
+</PreferenceScreen>

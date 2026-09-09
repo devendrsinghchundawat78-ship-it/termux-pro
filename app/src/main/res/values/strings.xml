@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE resources [
+    <!ENTITY TERMUX_PACKAGE_NAME "com.termux.pro">
+    <!ENTITY TERMUX_APP_NAME "Termux Pro">
+    <!ENTITY TERMUX_API_APP_NAME "Termux Pro:API">
+    <!ENTITY TERMUX_BOOT_APP_NAME "Termux Pro:Boot">
+    <!ENTITY TERMUX_FLOAT_APP_NAME "Termux Pro:Float">
+    <!ENTITY TERMUX_STYLING_APP_NAME "Termux Pro:Styling">
+    <!ENTITY TERMUX_TASKER_APP_NAME "Termux Pro:Tasker">
+    <!ENTITY TERMUX_WIDGET_APP_NAME "Termux Pro:Widget">
+    ]>
+
+<resources>
+
+    <string name="application_name">&TERMUX_APP_NAME;</string>
+    <string name="shared_user_label">&TERMUX_APP_NAME; user</string>
+
+
+
+    <!-- Termux RUN_COMMAND permission -->
+    <string name="permission_run_command_label">Run commands in &TERMUX_APP_NAME; environment</string>
+    <string name="permission_run_command_description">execute arbitrary commands within &TERMUX_APP_NAME;
+        environment and access files</string>
+
+
+
+    <!-- Termux Bootstrap Packages Installation -->
+    <string name="bootstrap_installer_body">Installing bootstrap packages…</string>
+    <string name="bootstrap_error_title">Unable to install bootstrap</string>
+    <string name="bootstrap_error_body">&TERMUX_APP_NAME; was unable to install the bootstrap packages.</string>
+    <string name="bootstrap_error_abort">Abort</string>
+    <string name="bootstrap_error_try_again">Try again</string>
+    <string name="bootstrap_error_not_primary_user_message">&TERMUX_APP_NAME; can only be run as the primary user.
+        \nBootstrap binaries compiled for &TERMUX_APP_NAME; have hardcoded $PREFIX path and cannot be installed
+        under any path other than:\n%1$s.</string>
+    <string name="bootstrap_error_installed_on_portable_sd">&TERMUX_APP_NAME; cannot be installed on
+        portable/external/removable sd card on your device.
+        \nBootstrap binaries compiled for &TERMUX_APP_NAME; have hardcoded $PREFIX path and cannot be installed
+        under any path other than:\n%1$s.</string>
+
+
+
+    <!-- Terminal Sidebar and Shortcuts -->
+    <string name="action_new_session">New session</string>
+    <string name="action_new_session_failsafe">Failsafe</string>
+    <string name="title_max_terminals_reached">Max terminals reached</string>
+    <string name="msg_max_terminals_reached">Close down existing ones before creating new.</string>
+
+    <string name="title_rename_session">Set session name</string>
+    <string name="action_rename_session_confirm">Set</string>
+    <string name="title_create_named_session">New named session</string>
+    <string name="action_create_named_session_confirm">Create</string>
+
+    <string name="action_toggle_soft_keyboard">Keyboard</string>
+
+    <string name="msg_enabling_terminal_toolbar">Enabling Terminal Toolbar</string>
+    <string name="msg_disabling_terminal_toolbar">Disabling Terminal Toolbar</string>
+
+
+
+    <!-- Terminal Popup -->
+    <string name="action_select_url">Select URL</string>
+    <string name="title_select_url_dialog">Click URL to copy or long press to open</string>
+    <string name="title_select_url_none_found">No URL found in the terminal.</string>
+    <string name="msg_select_url_copied_to_clipboard">URL copied to clipboard</string>
+
+    <string name="action_share_transcript">Share transcript</string>
+    <string name="title_share_transcript">Terminal transcript</string>
+    <string name="title_share_transcript_with">Send transcript to:</string>
+
+    <string name="action_share_selected_text">Share selected text</string>
+    <string name="title_share_selected_text">Terminal Text</string>
+    <string name="title_share_selected_text_with">Send selected text to:</string>
+
+    <string name="action_autofill_username">Autofill username</string>
+    <string name="action_autofill_password">Autofill password</string>
+
+    <string name="action_reset_terminal">Reset</string>
+    <string name="msg_terminal_reset">Terminal reset</string>
+
+    <string name="action_kill_process">Kill process (%d)</string>
+    <string name="title_confirm_kill_process">Really kill this session?</string>
+
+    <string name="action_style_terminal">Style</string>
+    <string name="action_toggle_keep_screen_on">Keep screen on</string>
+    <string name="action_open_help">Help</string>
+    <string name="action_open_settings">Settings</string>
+
+    <string name="action_report_issue">Report Issue</string>
+    <string name="msg_generating_report">Generating Report</string>
+    <string name="msg_add_termux_debug_info">Add termux debug info to report?</string>
+
+    <string name="error_styling_not_installed">The &TERMUX_STYLING_APP_NAME; Plugin App is not installed.</string>
+    <string name="action_styling_install">Install</string>
+
+
+
+    <!-- Termux Notifications -->
+    <string name="notification_action_exit">Exit</string>
+    <string name="notification_action_wake_lock">Acquire wakelock</string>
+    <string name="notification_action_wake_unlock">Release wakelock</string>
+
+
+
+    <!-- TermuxService -->
+    <string name="error_display_over_other_apps_permission_not_granted_to_start_terminal">&TERMUX_APP_NAME; requires
+        \"Display over other apps\" permission to start terminal sessions from background on Android >= 10.
+        Grants it from Settings -> Apps -> &TERMUX_APP_NAME; -> Advanced</string>
+    <string name="error_termux_service_invalid_execution_command_runner">Invalid execution command runner to TermuxService: `%1$s`</string>
+    <string name="error_termux_service_unsupported_execution_command_runner">Unsupported execution command runner to TermuxService: `%1$s`</string>
+    <string name="error_termux_service_unsupported_execution_command_shell_create_mode">Unsupported execution command shell create mode to TermuxService: `%1$s`</string>
+    <string name="error_termux_service_execution_command_shell_name_unset">Shell name not set but `%1$s` shell create mode passed</string>
+
+
+
+    <!-- Termux RunCommandService -->
+    <string name="error_run_command_service_invalid_intent_action">Invalid intent action to RunCommandService: `%1$s`</string>
+    <string name="error_run_command_service_invalid_execution_command_runner">Invalid execution command runner to RunCommandService: `%1$s`</string>
+    <string name="error_run_command_service_mandatory_extra_missing">Mandatory extra missing to RunCommandService: \"%1$s\"</string>
+    <string name="error_run_command_service_api_help">Visit %1$s for more info on RUN_COMMAND Intent usage.</string>
+
+
+
+    <!-- Termux File Receiver -->
+    <string name="title_file_received">Save file in ~/downloads/</string>
+    <string name="action_file_received_edit">Edit</string>
+    <string name="action_file_received_open_directory">Open directory</string>
+
+
+
+    <!-- Miscellaneous -->
+    <string name="error_termux_service_start_failed_general">Failed to start TermuxService. Check logcat for exception message.</string>
+    <string name="error_termux_service_start_failed_bg">Failed to start TermuxService while app is in background due to android bg restrictions.</string>
+
+
+
+    <!-- Termux Settings -->
+    <string name="title_activity_termux_settings">&TERMUX_APP_NAME; Settings</string>
+
+    <!-- Termux App Preferences -->
+    <string name="termux_preferences_title">&TERMUX_APP_NAME;</string>
+    <string name="termux_preferences_summary">Preferences for &TERMUX_APP_NAME; app</string>
+
+        <!-- Debugging Preferences -->
+        <string name="termux_debugging_preferences_title">Debugging</string>
+        <string name="termux_debugging_preferences_summary">Preferences for debugging</string>
+
+            <!-- Logging Category -->
+            <string name="termux_logging_header">Logging</string>
+
+                <!-- Log Level -->
+                <string name="termux_log_level_title">Log Level</string>
+
+                <!-- Terminal View Key Logging -->
+                <string name="termux_terminal_view_key_logging_enabled_title">Terminal View Key Logging</string>
+                <string name="termux_terminal_view_key_logging_enabled_off">Logs will not have entries for terminal view keys. (Default)</string>
+                <string name="termux_terminal_view_key_logging_enabled_on">Logcat logs will have entries for terminal view keys.
+                    These are very verbose and should be disabled under normal circumstances or will cause performance issues.</string>
+
+                <!-- Plugin Error Notifications -->
+                <string name="termux_plugin_error_notifications_enabled_title">Plugin Error Notifications</string>
+                <string name="termux_plugin_error_notifications_enabled_off">Disable flashes and notifications for plugin errors.</string>
+                <string name="termux_plugin_error_notifications_enabled_on">Show flashes and notifications for plugin errors. (Default)</string>
+
+                <!-- Crash Report Notifications -->
+                <string name="termux_crash_report_notifications_enabled_title">Crash Report Notifications</string>
+                <string name="termux_crash_report_notifications_enabled_off">Disable notifications for crash reports.</string>
+                <string name="termux_crash_report_notifications_enabled_on">Show notifications for crash reports. (Default)</string>
+
+
+        <!-- Terminal IO Preferences -->
+        <string name="termux_terminal_io_preferences_title">Terminal I/O</string>
+        <string name="termux_terminal_io_preferences_summary">Preferences for terminal I/O</string>
+
+            <!-- Keyboard Category -->
+            <string name="termux_keyboard_header">Keyboard</string>
+
+                <!-- Soft Keyboard -->
+                <string name="termux_soft_keyboard_enabled_title">Soft Keyboard Enabled</string>
+                <string name="termux_soft_keyboard_enabled_off">Soft keyboard will be disabled.</string>
+                <string name="termux_soft_keyboard_enabled_on">Soft keyboard will be enabled. (Default)</string>
+
+                <!-- Soft Keyboard Only If No Hardware-->
+                <string name="termux_soft_keyboard_enabled_only_if_no_hardware_title">Soft Keyboard Only If No Hardware</string>
+                <string name="termux_soft_keyboard_enabled_only_if_no_hardware_off">Soft keyboard will be enabled even if
+                    hardware keyboard is connected. (Default)</string>
+                <string name="termux_soft_keyboard_enabled_only_if_no_hardware_on">Soft keyboard will be enabled only if
+                    no hardware keyboard is connected.</string>
+
+
+        <!-- Terminal View Preferences -->
+        <string name="termux_terminal_view_preferences_title">Terminal View</string>
+        <string name="termux_terminal_view_preferences_summary">Preferences for terminal view</string>
+
+            <!-- View Category -->
+            <string name="termux_terminal_view_view_header">View</string>
+
+                <!-- Terminal View Margin Adjustment -->
+                <string name="termux_terminal_view_terminal_margin_adjustment_title">Terminal Margin Adjustment</string>
+                <string name="termux_terminal_view_terminal_margin_adjustment_off">Terminal margin adjustment will be disabled.</string>
+                <string name="termux_terminal_view_terminal_margin_adjustment_on">Terminal margin adjustment will be enabled.
+                    It should be enabled to try to fix the issue where soft keyboard covers part of extra keys/terminal view.
+                    If it causes screen flickering on your devices, then disable it. (Default)</string>
+
+
+
+    <!-- Termux:API App Preferences -->
+    <string name="termux_api_preferences_title">&TERMUX_API_APP_NAME;</string>
+    <string name="termux_api_preferences_summary">Preferences for &TERMUX_API_APP_NAME; app</string>
+
+
+
+    <!-- Termux:Float App Preferences -->
+    <string name="termux_float_preferences_title">&TERMUX_FLOAT_APP_NAME;</string>
+    <string name="termux_float_preferences_summary">Preferences for &TERMUX_FLOAT_APP_NAME; app</string>
+
+
+
+    <!-- Termux:Tasker App Preferences -->
+    <string name="termux_tasker_preferences_title">&TERMUX_TASKER_APP_NAME;</string>
+    <string name="termux_tasker_preferences_summary">Preferences for &TERMUX_TASKER_APP_NAME; app</string>
+
+
+
+    <!-- Termux:Widget App Preferences -->
+    <string name="termux_widget_preferences_title">&TERMUX_WIDGET_APP_NAME;</string>
+    <string name="termux_widget_preferences_summary">Preferences for &TERMUX_WIDGET_APP_NAME; app</string>
+
+
+
+    <!-- About Preference -->
+    <string name="about_preference_title">About</string>
+
+    <!-- Donate Preference -->
+    <string name="donate_preference_title">Donate</string>
+
+
+    <!-- ================= AI Assistant ================= -->
+
+    <!-- Settings root entry -->
+    <string name="ai_settings_title">AI Assistant</string>
+    <string name="ai_settings_summary">AI agent that can run and fix Termux commands for you</string>
+
+    <!-- Open agent -->
+    <string name="ai_agent_activity_title">AI Agent</string>
+    <string name="action_ai_agent">AI Agent</string>
+    <string name="ai_agent_open_title">Open AI Agent</string>
+    <string name="ai_agent_open_summary">Chat with the AI and let it run commands in your Termux</string>
+
+    <!-- Agent screen -->
+    <string name="ai_agent_input_hint">Type your task in simple language…</string>
+    <string name="ai_agent_send">Send</string>
+    <string name="ai_agent_stop">Stop</string>
+    <string name="ai_agent_clear">Clear</string>
+    <string name="ai_agent_busy">The agent is already working. Wait or press Stop.</string>
+
+    <!-- Approval dialog -->
+    <string name="ai_approval_title">Allow AI to run this command?</string>
+    <string name="ai_approval_allow">Allow</string>
+    <string name="ai_approval_deny">Deny</string>
+    <string name="ai_approval_stop_all">Stop everything</string>
+
+    <!-- Preferences screen -->
+    <string name="ai_header_provider">Provider &amp; API Key</string>
+    <string name="ai_provider_title">Provider</string>
+    <string name="ai_api_key_title">API Key</string>
+    <string name="ai_api_key_summary_empty">No API key set yet</string>
+    <string name="ai_api_key_summary_set">Key stored (encrypted): %1$s</string>
+    <string name="ai_api_key_dialog_message">Paste the key from the provider website.\n\nFormat check: %1$s</string>
+    <string name="ai_key_store_failed">Could not encrypt the key on this device. Please try again.</string>
+    <string name="ai_test_connection_title">Test Connection</string>
+    <string name="ai_test_connection_summary_default">Verify the key and load the available models</string>
+    <string name="ai_test_running">Testing connection…</string>
+    <string name="ai_test_ok">Connection OK - %1$d model(s) available</string>
+    <string name="ai_test_failed">Connection failed - details above</string>
+    <string name="ai_test_no_key_title">No API key</string>
+    <string name="ai_test_no_key_message">Add your API key first (Ollama does not need one). The key is stored encrypted on this device only.</string>
+    <string name="ai_test_result_title_ok">Connection test: success</string>
+    <string name="ai_test_result_title_failed">Connection test: failed</string>
+
+    <!-- Models -->
+    <string name="ai_model_title_gemini">Model (Gemini)</string>
+    <string name="ai_model_title_openai">Model (OpenAI)</string>
+    <string name="ai_model_title_anthropic">Model (Claude)</string>
+    <string name="ai_model_title_groq">Model (Groq)</string>
+    <string name="ai_model_title_ollama">Model (Ollama)</string>
+
+    <!-- Ollama -->
+    <string name="ai_ollama_url_title">Ollama server URL</string>
+    <string name="ai_ollama_url_summary">Default local address</string>
+    <string name="ai_ollama_url_summary_current">Server: %1$s</string>
+
+    <!-- Safety -->
+    <string name="ai_header_safety">Safety &amp; Limits</string>
+    <string name="ai_ask_title">Ask before every command</string>
+    <string name="ai_ask_on">Commands run only after you approve them</string>
+    <string name="ai_ask_off">Commands may run without asking (dangerous ones always ask)</string>
+    <string name="ai_retries_title">Auto-fix attempts</string>
+    <string name="ai_retries_summary">How many times the AI may retry a failed command with a fix</string>
+    <string name="ai_timeout_title">Command timeout (seconds)</string>
+    <string name="ai_timeout_summary">Long installs may need 240 or more</string>
+
+    <!-- Help -->
+    <string name="ai_help_title">How the AI Agent works</string>
+    <string name="ai_help_summary">Simple guide to using the AI safely</string>
+    <string name="ai_help_message">The AI Agent can run real commands inside your Termux to get work done.\n\n1. Open \"AI Agent\" from Settings or from the terminal context menu.\n2. Type any task in simple language, e.g. \"install python and run a test script\".\n3. The AI plans shell commands and asks for your approval before every command.\n4. If a command fails, the AI reads the error and tries to fix it (max retries are configurable).\n5. Press Stop any time to cancel everything.\n\nSafety: every command is approved by you first, dangerous commands (like rm -rf) are always flagged, and everything the AI runs is printed in the session log.</string>
+
+
+    <!-- File Manager -->
+    <string name="action_file_manager">File Manager</string>
+    <string name="file_manager_up">Up</string>
+    <string name="file_manager_home">Home</string>
+    <string name="file_manager_new_file">New file</string>
+    <string name="file_manager_new_folder">New folder</string>
+    <string name="file_manager_hidden_off">Hidden: off</string>
+    <string name="file_manager_hidden_on">Hidden: on</string>
+    <string name="file_manager_sort">Sort</string>
+
+    <!-- Code Editor -->
+    <string name="action_code_editor">Code Editor</string>
+    <string name="editor_back">Back</string>
+    <string name="editor_save">Save</string>
+    <string name="editor_find">Find</string>
+    <string name="editor_git">Git</string>
+    <string name="editor_open">Open</string>
+
+
+</resources>

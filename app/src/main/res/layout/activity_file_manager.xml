@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Path bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?android:attr/colorControlHighlight"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <TextView
+            android:id="@+id/fm_path"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="start"
+            android:fontFamily="monospace"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Toolbar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp">
+
+            <Button
+                android:id="@+id/fm_up"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_up" />
+
+            <Button
+                android:id="@+id/fm_home"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_home" />
+
+            <Button
+                android:id="@+id/fm_new_file"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_new_file" />
+
+            <Button
+                android:id="@+id/fm_new_folder"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_new_folder" />
+
+            <Button
+                android:id="@+id/fm_hidden"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_hidden_off" />
+
+            <Button
+                android:id="@+id/fm_sort"
+                style="@style/Widget.TermuxApp.CompactButton"
+                android:text="@string/file_manager_sort" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorControlHighlight" />
+
+    <ListView
+        android:id="@+id/fm_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="?android:attr/colorControlHighlight"
+        android:dividerHeight="1dp"
+        android:choiceMode="none" />
+
+</LinearLayout>

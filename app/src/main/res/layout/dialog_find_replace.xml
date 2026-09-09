@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <EditText
+        android:id="@+id/fr_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Find"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/fr_replace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Replace with"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/fr_regex"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Regex" />
+
+        <CheckBox
+            android:id="@+id/fr_case"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Match case" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fr_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:text="Next" />
+
+        <Button
+            android:id="@+id/fr_prev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:text="Prev" />
+
+        <Button
+            android:id="@+id/fr_replace_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:text="Replace" />
+
+        <Button
+            android:id="@+id/fr_replace_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="0dp"
+            android:text="All" />
+    </LinearLayout>
+
+</LinearLayout>

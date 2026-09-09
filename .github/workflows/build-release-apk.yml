@@ -1,0 +1,114 @@
+name: Build Termux Pro Release APK
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-apk
+  cancel-in-progress: true
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v6
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install pinned NDK + SDK platform (best effort, AGP auto-installs if missing)
+        shell: bash {0}
+        run: |
+          SDKMANAGER="$(ls "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | head -n 1)"
+          if [ -n "$SDKMANAGER" ]; then
+            yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+            "$SDKMANAGER" --install "ndk;29.0.14206865" "platforms;android-36" > /dev/null 2>&1 || echo "sdkmanager install not required / failed - letting AGP handle it"
+          fi
+
+      - name: Create release signing key
+        shell: bash {0}
+        run: |
+          keytool -genkeypair -v \
+            -keystore "$RUNNER_TEMP/termux-pro.keystore" \
+            -alias termuxpro \
+            -keyalg RSA -keysize 2048 -validity 10950 \
+            -storepass "termuxpro-build-pass" \
+            -keypass "termuxpro-build-pass" \
+            -dname "CN=Termux Pro, O=Termux Pro, L=City, C=IN"
+
+      - name: Build signed release APK
+        shell: bash {0}
+        env:
+          TERMUX_PACKAGE_VARIANT: apt-android-7
+          TERMUX_SPLIT_APKS_FOR_RELEASE_BUILDS: "0"
+          TERMUX_APP_VERSION_NAME: "0.118.0-pro"
+          TERMUX_APK_VERSION_TAG: "termux-pro"
+          RELEASE_STORE_FILE: ${{ runner.temp }}/termux-pro.keystore
+          RELEASE_STORE_PASSWORD: termuxpro-build-pass
+          RELEASE_KEY_ALIAS: termuxpro
+          RELEASE_KEY_PASSWORD: termuxpro-build-pass
+        run: |
+          echo "Building release APK (signed, universal - all ABIs)..."
+          if ! ./gradlew :app:assembleRelease -x lintVitalRelease --no-daemon --stacktrace; then
+            echo "::error::Release build failed"
+            exit 1
+          fi
+
+      - name: Collect, verify and rename APK
+        shell: bash {0}
+        run: |
+          ls -la app/build/outputs/apk/release/
+          APK_FILE="$(ls app/build/outputs/apk/release/*.apk | grep -v unsigned | head -n 1)"
+          if [ -z "$APK_FILE" ] || [ ! -s "$APK_FILE" ]; then
+            echo "::error::No signed APK produced"
+            exit 1
+          fi
+          echo "APK_FILE=$APK_FILE" >> "$GITHUB_ENV"
+
+          FINAL_NAME="Termux-Pro-v0.118.0-pro.apk"
+          cp "$APK_FILE" "$FINAL_NAME"
+          sha256sum "$FINAL_NAME" > "$FINAL_NAME.sha256"
+          echo "FINAL_NAME=$FINAL_NAME" >> "$GITHUB_ENV"
+
+          # quick sanity: verify signature is present
+          "${ANDROID_HOME}/build-tools/"*/apksigner verify "$APK_FILE" && echo "Signature verified OK"
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: termux-pro-release-apk
+          path: |
+            ${{ env.FINAL_NAME }}
+            ${{ env.FINAL_NAME }}.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Create GitHub Release (workflow_dispatch only)
+        if: github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.118.0-pro
+          name: Termux Pro v0.118.0-pro
+          body: |
+            Termux Pro - standalone build of Termux with:
+            - AI Agent (plans + runs + fixes commands after approval)
+            - Built-in GUI File Manager
+            - Built-in Code Editor (highlighting, git, find/replace, tabs)
+            - Installs separately (package com.termux.pro) - never overwrites original Termux
+
+            APK is signed and universal (arm64-v8a, armeabi-v7a, x86_64, x86).
+          files: |
+            ${{ env.FINAL_NAME }}
+            ${{ env.FINAL_NAME }}.sha256
+          fail_on_unmatched_files: true

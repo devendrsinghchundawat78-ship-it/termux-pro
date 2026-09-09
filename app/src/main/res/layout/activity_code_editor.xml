@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FF1E1E1E">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#FF252526"
+        android:elevation="2dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <Button
+            android:id="@+id/ed_back"
+            style="@style/Widget.TermuxApp.CompactButton.Inverse"
+            android:background="@drawable/bg_button_dark"
+            android:text="@string/editor_back"
+            android:textColor="#FFDDE6EE" />
+
+        <Button
+            android:id="@+id/ed_save"
+            style="@style/Widget.TermuxApp.CompactButton.Inverse"
+            android:background="@drawable/bg_button_accent"
+            android:text="@string/editor_save"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginLeft="4dp" />
+
+        <Button
+            android:id="@+id/ed_search"
+            style="@style/Widget.TermuxApp.CompactButton.Inverse"
+            android:background="@drawable/bg_button_dark"
+            android:text="@string/editor_find"
+            android:layout_marginLeft="4dp" />
+
+        <Button
+            android:id="@+id/ed_git"
+            style="@style/Widget.TermuxApp.CompactButton.Inverse"
+            android:background="@drawable/bg_button_dark"
+            android:text="@string/editor_git"
+            android:layout_marginLeft="4dp" />
+
+        <Button
+            android:id="@+id/ed_open"
+            style="@style/Widget.TermuxApp.CompactButton.Inverse"
+            android:background="@drawable/bg_button_dark"
+            android:text="@string/editor_open"
+            android:layout_marginLeft="4dp" />
+    </LinearLayout>
+
+    <!-- Current file path -->
+    <TextView
+        android:id="@+id/ed_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:fontFamily="monospace"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:singleLine="true"
+        android:textColor="#FF9E9E9E"
+        android:textSize="11sp" />
+
+    <!-- Tab strip -->
+    <HorizontalScrollView
+        android:id="@+id/ed_tab_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#FF2D2D30"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
+
+        <LinearLayout
+            android:id="@+id/ed_tabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp" />
+    </HorizontalScrollView>
+
+    <!-- Editor -->
+    <com.termux.pro.app.editor.CodeEditText
+        android:id="@+id/ed_editor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FF1E1E1E"
+        android:paddingTop="6dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="6dp"
+        android:textColor="#FFD4D4D4"
+        android:textColorHighlight="#FF1F4E79"
+        android:textSize="13sp"
+        android:lineSpacingExtra="2dp"
+        android:scrollbars="vertical" />
+
+    <!-- Status bar -->
+    <TextView
+        android:id="@+id/ed_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_status_bar"
+        android:fontFamily="monospace"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textColor="#FF9DA5B0"
+        android:textSize="11sp"
+        android:singleLine="true" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="TermuxAlertDialogStyle" parent="@android:style/Theme.Material.Light.Dialog.Alert">
+        <!-- Seen in buttons on alert dialog: -->
+        <item name="android:colorAccent">#212121</item>
+    </style>
+
+    <style name="TermuxActivity.Drawer.ButtonBarStyle.Light" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TermuxActivity.Drawer.ButtonBarStyle.Dark" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Compact, flat buttons used by the toolbars of the File Manager and the editor -->
+    <style name="Widget.TermuxApp.CompactButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Inverted (dark) compact button for dark screens -->
+    <style name="Widget.TermuxApp.CompactButton.Inverse" parent="Widget.TermuxApp.CompactButton">
+        <item name="android:textColor">#DDE6EE</item>
+    </style>
+
+</resources>
