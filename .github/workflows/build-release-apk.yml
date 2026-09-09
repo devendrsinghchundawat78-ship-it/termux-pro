@@ -87,7 +87,8 @@ jobs:
           echo "FINAL_NAME=$FINAL_NAME" >> "$GITHUB_ENV"
 
           # quick sanity: verify signature is present
-          "${ANDROID_HOME}/build-tools/"*/apksigner verify "$APK_FILE" && echo "Signature verified OK"
+          APKSIGNER="$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -n 1)"
+          "$APKSIGNER" verify --verbose "$APK_FILE" && echo "Signature verified OK"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
